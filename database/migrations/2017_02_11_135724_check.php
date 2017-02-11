@@ -14,11 +14,12 @@ class Check extends Migration
     public function up()
     {
       Schema::create('check', function (Blueprint $table) {
-          $table->string('id')->index();
-          $table->string('user')->index();
-          $table->string('passowrd')->index();
-          $table->text('body');
-          $table->timestamp('created_at')->nullable();
+          $table->increments('id');
+          $table->string('name');
+//          $table->string('email')->unique();
+          $table->string('password');
+          $table->rememberToken();
+          $table->timestamps();
       });
     }
 
